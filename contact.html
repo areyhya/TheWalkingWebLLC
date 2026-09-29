@@ -1,59 +1,511 @@
-<form action="https://formsubmit.co/contact@thewalkingweb.net" method="POST">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book With Us | The Walking Web LLC</title>
+    <link rel="stylesheet" href="css/style.css">
 
-    <input type="hidden" name="_subject" value="New Consultation Booking - The Walking Web LLC">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_next" value="https://areyhya.github.io/TheWalkingWebLLC/contact.html?success=true">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <div class="form-group">
-        <label for="name">Name *</label>
-        <input type="text" id="name" name="Name" required placeholder="Enter your full name">
-    </div>
+    <style>
+        /* Animated Moon Background Styling */
+        body {
+            position: relative;
+            overflow-x: hidden;
+        }
 
-    <div class="form-group">
-        <label for="company">Company *</label>
-        <input type="text" id="company" name="Company" required placeholder="Enter your business name">
-    </div>
+        .animated-moon-bg {
+            position: fixed;
+            top: 50px;
+            right: 80px;
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(
+                circle at 35% 35%,
+                #ffffff 0%,
+                #00e5ff 40%,
+                #050b14 80%
+            );
+            border-radius: 50%;
+            box-shadow:
+                0 0 50px rgba(0, 229, 255, 0.4),
+                inset -15px -15px 30px rgba(0, 0, 0, 0.8);
+            animation:
+                floatMoon 8s ease-in-out infinite alternate,
+                pulseGlow 4s ease-in-out infinite alternate;
+            z-index: -1;
+            opacity: 0.85;
+        }
 
-    <div class="form-group">
-        <label for="email">Email *</label>
-        <input type="email" id="email" name="Email" required placeholder="name@yourbusiness.com">
-    </div>
+        @keyframes floatMoon {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
 
-    <div class="form-group">
-        <label for="phone">Phone Number *</label>
-        <input type="tel" id="phone" name="Phone" required placeholder="(555) 000-0000">
-    </div>
+            100% {
+                transform: translateY(-20px) rotate(3deg);
+            }
+        }
 
-    <div class="form-group">
-        <label for="service">Type of Service *</label>
-        <select id="service" name="Service_Type" required>
-            <option value="" disabled selected>-- Select a Service --</option>
-            <option value="Website Design">Website Design</option>
-            <option value="Marketing Insights & Social Media">Marketing Insights & Social Media</option>
-            <option value="AI Business Efficiency Audit">AI Business Efficiency Audit</option>
-            <option value="Small Business Digital Presence Audit">Small Business Digital Presence Audit</option>
-            <option value="Grant + Funding Readiness">Grant + Funding Readiness</option>
-            <option value="SOP & Knowledge Base Creation">SOP & Knowledge Base Creation</option>
-            <option value="Customer Experience (CX) Audit">Customer Experience (CX) Audit</option>
-            <option value="Reputation & Review Management">Reputation & Review Management</option>
-        </select>
-    </div>
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+            }
 
-    <div class="form-group">
-        <label for="callback-time">Preferred Callback Time *</label>
-        <select id="callback-time" name="Preferred_Callback_Time" required>
-            <option value="" disabled selected>-- Select Preferred Time Window --</option>
-            <option value="Morning (9:00 AM - 12:00 PM)">Morning (9:00 AM - 12:00 PM)</option>
-            <option value="Afternoon (12:00 PM - 4:00 PM)">Afternoon (12:00 PM - 4:00 PM)</option>
-            <option value="Evening (4:00 PM - 7:00 PM)">Evening (4:00 PM - 7:00 PM)</option>
-            <option value="As Soon As Possible">As Soon As Possible</option>
-        </select>
-    </div>
+            100% {
+                box-shadow: 0 0 60px rgba(0, 229, 255, 0.6);
+            }
+        }
 
-    <div style="margin-top: 2rem; text-align: center;">
-        <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer; font-size: 1rem; padding: 1rem;">
-            Submit Booking
-        </button>
-    </div>
+        /* Booking Form Container Styling */
+        .booking-form-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: rgba(10, 25, 47, 0.75);
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            padding: 2.5rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
 
-</form>
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: rgba(5, 11, 20, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 6px;
+            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.25);
+        }
+
+        .form-group select option {
+            background-color: #0a192f;
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .animated-moon-bg {
+                width: 80px;
+                height: 80px;
+                top: 20px;
+                right: 20px;
+            }
+
+            .booking-form-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Animated Cosmic Moon -->
+    <div class="animated-moon-bg"></div>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="nav-container">
+
+            <a href="index.html" class="logo">
+                Walking<span>Web</span>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">About Us</a>
+                    </li>
+
+                    <!-- Services Dropdown Menu -->
+                    <li class="dropdown">
+
+                        <a href="#" class="drop-btn">
+                            Services ▾
+                        </a>
+
+                        <ul class="dropdown-menu">
+
+                            <li>
+                                <a href="service-web-design.html">
+                                    Website Design
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="service-marketing.html">
+                                    Marketing Insights & Social Media
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="service-ai-audit.html">
+                                    AI Business Efficiency Audit
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="service-digital-audit.html">
+                                    Small Business Digital Presence Audit
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="service-grant.html">
+                                    Grant + Funding Readiness
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="service-sop.html">
+                                    SOP & Knowledge Base Creation
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="service-cx.html">
+                                    Customer Experience (CX) Audit
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="service-reputation.html">
+                                    Reputation & Review Management
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="contact.html" class="cta-btn active">
+                            Book Now
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Booking Page Content -->
+    <main class="page-content">
+
+        <section class="content-container">
+
+            <span class="badge">
+                Start Your Transformation
+            </span>
+
+            <h1 style="text-align: center; margin-bottom: 2rem;">
+                Book With Us
+            </h1>
+
+            <div class="booking-form-container">
+
+                <!--
+                    FORM SUBMIT
+                    Submissions will be sent to:
+                    contact@thewalkingweb.net
+                -->
+
+                <form
+                    action="https://formsubmit.co/contact@thewalkingweb.net"
+                    method="POST"
+                >
+
+                    <!-- FormSubmit Settings -->
+
+                    <input
+                        type="hidden"
+                        name="_subject"
+                        value="New Consultation Booking - The Walking Web LLC"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="_template"
+                        value="table"
+                    >
+
+                    <!-- Name -->
+                    <div class="form-group">
+
+                        <label for="name">
+                            Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="Name"
+                            required
+                            placeholder="Enter your full name"
+                        >
+
+                    </div>
+
+                    <!-- Company -->
+                    <div class="form-group">
+
+                        <label for="company">
+                            Company *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="company"
+                            name="Company"
+                            required
+                            placeholder="Enter your business name"
+                        >
+
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email *
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="Email"
+                            required
+                            placeholder="name@yourbusiness.com"
+                        >
+
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number *
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="Phone"
+                            required
+                            placeholder="(555) 000-0000"
+                        >
+
+                    </div>
+
+                    <!-- Service -->
+                    <div class="form-group">
+
+                        <label for="service">
+                            Type of Service *
+                        </label>
+
+                        <select
+                            id="service"
+                            name="Service_Type"
+                            required
+                        >
+
+                            <option value="" disabled selected>
+                                -- Select a Service --
+                            </option>
+
+                            <option value="Website Design">
+                                Website Design
+                            </option>
+
+                            <option value="Marketing Insights & Social Media">
+                                Marketing Insights & Social Media
+                            </option>
+
+                            <option value="AI Business Efficiency Audit">
+                                AI Business Efficiency Audit
+                            </option>
+
+                            <option value="Small Business Digital Presence Audit">
+                                Small Business Digital Presence Audit
+                            </option>
+
+                            <option value="Grant + Funding Readiness">
+                                Grant + Funding Readiness
+                            </option>
+
+                            <option value="SOP & Knowledge Base Creation">
+                                SOP & Knowledge Base Creation
+                            </option>
+
+                            <option value="Customer Experience (CX) Audit">
+                                Customer Experience (CX) Audit
+                            </option>
+
+                            <option value="Reputation & Review Management">
+                                Reputation & Review Management
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- Preferred Callback Time -->
+                    <div class="form-group">
+
+                        <label for="callback-time">
+                            Preferred Callback Time *
+                        </label>
+
+                        <select
+                            id="callback-time"
+                            name="Preferred_Callback_Time"
+                            required
+                        >
+
+                            <option value="" disabled selected>
+                                -- Select Preferred Time Window --
+                            </option>
+
+                            <option value="Morning (9:00 AM - 12:00 PM)">
+                                Morning (9:00 AM - 12:00 PM)
+                            </option>
+
+                            <option value="Afternoon (12:00 PM - 4:00 PM)">
+                                Afternoon (12:00 PM - 4:00 PM)
+                            </option>
+
+                            <option value="Evening (4:00 PM - 7:00 PM)">
+                                Evening (4:00 PM - 7:00 PM)
+                            </option>
+
+                            <option value="As Soon As Possible">
+                                As Soon As Possible
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div
+                        style="margin-top: 2rem; text-align: center;"
+                    >
+
+                        <button
+                            type="submit"
+                            class="btn-primary"
+                            style="width: 100%; border: none; cursor: pointer; font-size: 1rem; padding: 1rem;"
+                        >
+                            Submit Booking
+                        </button>
+
+                    </div>
+
+                </form>
+
+                <!-- Success Confirmation Banner -->
+                <div
+                    id="success-message"
+                    style="display: none; margin-top: 1.5rem; padding: 1rem; background: rgba(0, 229, 255, 0.1); border: 1px solid var(--accent-cyan); border-radius: 6px; text-align: center; color: var(--accent-cyan);"
+                >
+                    Thank you for booking with us! We will be in touch shortly at your requested time.
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-content">
+
+            <div class="footer-info">
+
+                <h3>
+                    Walking Web LLC
+                </h3>
+
+                <p>
+                    Email:
+                    <a href="mailto:contact@thewalkingweb.net">
+                        contact@thewalkingweb.net
+                    </a>
+                </p>
+
+                <p>
+                    Phone:
+                    <a href="tel:6463979251">
+                        646-397-9251
+                    </a>
+                </p>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p>
+                    &copy; 2026 The Walking Web LLC.
+                    All rights reserved.
+                    Crafted for the future.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- Success Message Script -->
+    <script>
+
+        const urlParams = new URLSearchParams(
+            window.location.search
+        );
+
+        if (urlParams.get('success') === 'true') {
+
+            document.getElementById(
+                'success-message'
+            ).style.display = 'block';
+
+        }
+
+    </script>
+
+</body>
+</html>
