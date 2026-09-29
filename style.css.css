@@ -1,0 +1,91 @@
+/* --- DROPDOWN MENU STYLES --- */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background-color: var(--bg-surface);
+    min-width: 280px;
+    list-style: none;
+    padding: 0.5rem 0;
+    border-radius: 8px;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 0.7rem 1.2rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-menu li a:hover {
+    background-color: rgba(56, 189, 248, 0.1);
+    color: var(--accent-glow);
+}
+
+/* --- FOOTER STYLES --- */
+footer {
+    background-color: var(--bg-surface);
+    border-top: 1px solid rgba(56, 189, 248, 0.1);
+    padding: 3rem 2rem 1.5rem 2rem;
+    color: var(--text-muted);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+}
+
+.footer-info h3 {
+    font-family: var(--font-heading);
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.footer-info p {
+    margin: 0.3rem 0;
+    font-size: 0.95rem;
+}
+
+.footer-info a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-info a:hover {
+    color: var(--accent-warm);
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    width: 100%;
+    padding-top: 1.5rem;
+    font-size: 0.85rem;
+}
