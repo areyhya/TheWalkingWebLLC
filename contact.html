@@ -144,13 +144,12 @@
             <h1 style="text-align: center; margin-bottom: 2rem;">Book With Us</h1>
             
             <div class="booking-form-container">
-                <!-- FormSubmit Configuration: Sends email to contact@walkingweb.net & handles custom auto-response -->
+                <!-- FormSubmit Configuration: Sends email to contact@walkingweb.net -->
                 <form action="https://formsubmit.co/contact@walkingweb.net" method="POST">
                     
                     <!-- FormSubmit Settings Configuration -->
                     <input type="hidden" name="_subject" value="New Consultation Booking - The Walking Web LLC">
                     <input type="hidden" name="_template" value="table">
-                    <!-- Redirects user to a polite confirmation page or back to your site -->
                     <input type="hidden" name="_next" value="https://areyhya.github.io/TheWalkingWebLLC/contact.html?success=true">
                     
                     <!-- Name Field -->
@@ -193,10 +192,16 @@
                         </select>
                     </div>
 
-                    <!-- Date and Time Field for Callback -->
+                    <!-- Preferred Callback Time Selection Field -->
                     <div class="form-group">
-                        <label for="callback-time">Requested Date & Time for Callback *</label>
-                        <input type="datetime-local" id="callback-time" name="Callback_Date_Time" required>
+                        <label for="callback-time">Preferred Callback Time *</label>
+                        <select id="callback-time" name="Preferred_Callback_Time" required>
+                            <option value="" disabled selected>-- Select Preferred Time Window --</option>
+                            <option value="Morning (9:00 AM - 12:00 PM)">Morning (9:00 AM - 12:00 PM)</option>
+                            <option value="Afternoon (12:00 PM - 4:00 PM)">Afternoon (12:00 PM - 4:00 PM)</option>
+                            <option value="Evening (4:00 PM - 7:00 PM)">Evening (4:00 PM - 7:00 PM)</option>
+                            <option value="As Soon As Possible">As Soon As Possible</option>
+                        </select>
                     </div>
 
                     <!-- Submit Button -->
@@ -205,7 +210,7 @@
                     </div>
                 </form>
 
-                <!-- Success Confirmation Banner (Appears when submitted) -->
+                <!-- Success Confirmation Banner -->
                 <div id="success-message" style="display: none; margin-top: 1.5rem; padding: 1rem; background: rgba(0, 229, 255, 0.1); border: 1px solid var(--accent-cyan); border-radius: 6px; text-align: center; color: var(--accent-cyan);">
                     Thank you for booking with us, we will be in touch shortly at your requested time.
                 </div>
