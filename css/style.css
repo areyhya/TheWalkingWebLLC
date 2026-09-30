@@ -1,3 +1,4 @@
+CSS
 /* --- CSS VARIABLES & THEME --- */
 :root {
     --bg-deep: #080b14;
@@ -350,13 +351,14 @@ footer {
 
 
 /* =========================================
-   🐿️ WALKING WEB SQUIRREL ASSISTANT
+   🐿️ WALKING WEB SQUIRREL ASSISTANT (CENTERED)
    ========================================= */
 
 .squirrel-assistant {
     position: fixed;
-    right: 8px;
+    left: 50%;
     bottom: 12px;
+    transform: translateX(-50%);
     z-index: 900;
     font-family: var(--font-body);
 }
@@ -621,7 +623,7 @@ footer {
 
     width: 340px;
 
-    right: 0;
+    left: 50%;
     bottom: 135px;
 
     background: rgba(18, 24, 41, 0.98);
@@ -639,7 +641,7 @@ footer {
     opacity: 0;
     visibility: hidden;
 
-    transform: translateY(15px) scale(0.96);
+    transform: translateX(-50%) translateY(15px) scale(0.96);
 
     transition:
         opacity 0.25s ease,
@@ -650,7 +652,7 @@ footer {
 .squirrel-assistant.open .squirrel-chat {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0) scale(1);
+    transform: translateX(-50%) translateY(0) scale(1);
 }
 
 
@@ -1008,11 +1010,13 @@ footer {
     }
 
 
-    /* --- MOBILE SQUIRREL --- */
+    /* --- MOBILE SQUIRREL (CENTERED) --- */
 
     .squirrel-assistant {
-        right: 6px;
+        left: 50%;
+        right: auto;
         bottom: 8px;
+        transform: translateX(-50%);
     }
 
     .squirrel-toggle {
@@ -1037,9 +1041,16 @@ footer {
 
         max-width: 340px;
 
-        right: 0;
+        left: 50%;
+        right: auto;
 
         bottom: 92px;
+        
+        transform: translateX(-50%) translateY(15px) scale(0.96);
+    }
+
+    .squirrel-assistant.open .squirrel-chat {
+        transform: translateX(-50%) translateY(0) scale(1);
     }
 
     .squirrel-messages {
