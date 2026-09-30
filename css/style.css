@@ -1,20 +1,16 @@
-```css
 /* --- CSS VARIABLES & THEME --- */
-
 :root {
-    --bg-deep: #080b14;
-    --bg-surface: #121829;
-    --text-main: #e2e8f0;
-    --text-muted: #94a3b8;
-    --accent-glow: #38bdf8;
-    --accent-warm: #f59e0b;
+    --bg-deep: #080b14;          /* Deep cosmic space slate */
+    --bg-surface: #121829;       /* Lighter dark surface for cards/nav */
+    --text-main: #e2e8f0;        /* Soft starlight white */
+    --text-muted: #94a3b8;       /* Cosmic dust gray */
+    --accent-glow: #38bdf8;      /* Future electric cyan */
+    --accent-warm: #f59e0b;      /* Warm starlight gold / amber */
     --font-heading: 'Orbitron', sans-serif;
     --font-body: 'Plus Jakarta Sans', sans-serif;
 }
 
-
 /* --- BASE STYLES --- */
-
 * {
     margin: 0;
     padding: 0;
@@ -29,9 +25,7 @@ body {
     overflow-x: hidden;
 }
 
-
 /* --- NAVIGATION --- */
-
 header {
     background-color: rgba(18, 24, 41, 0.85);
     backdrop-filter: blur(10px);
@@ -79,35 +73,25 @@ header {
     transition: color 0.3s ease;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.nav-links a:hover, .nav-links a.active {
     color: var(--accent-glow);
 }
 
 .cta-btn {
-    background: linear-gradient(
-        135deg,
-        var(--accent-warm),
-        #d97706
-    );
+    background: linear-gradient(135deg, var(--accent-warm), #d97706);
     color: #080b14 !important;
     padding: 0.6rem 1.2rem;
     border-radius: 6px;
     font-weight: 600 !important;
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .cta-btn:hover {
     transform: translateY(-2px);
-    box-shadow:
-        0 0 15px rgba(245, 158, 11, 0.4);
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
 }
 
-
 /* --- DROPDOWN MENU STYLES --- */
-
 .dropdown {
     position: relative;
 }
@@ -116,29 +100,25 @@ header {
     position: absolute;
     top: 100%;
     left: 50%;
-    transform:
-        translateX(-50%)
-        translateY(10px);
+    transform: translateX(-50%) translateY(10px);
     background-color: var(--bg-surface);
     min-width: 280px;
     list-style: none;
     padding: 0.5rem 0;
     border-radius: 8px;
     border: 1px solid rgba(56, 189, 248, 0.2);
-    box-shadow:
-        0 10px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
     z-index: 1001;
 }
 
+/* Show dropdown on hover */
 .dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
-    transform:
-        translateX(-50%)
-        translateY(0);
+    transform: translateX(-50%) translateY(0);
 }
 
 .dropdown-menu li a {
@@ -147,9 +127,7 @@ header {
     color: var(--text-muted);
     font-size: 0.9rem;
     white-space: nowrap;
-    transition:
-        background 0.2s ease,
-        color 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 .dropdown-menu li a:hover {
@@ -157,9 +135,7 @@ header {
     color: var(--accent-glow);
 }
 
-
 /* --- HERO SECTION --- */
-
 .hero {
     min-height: 100vh;
     display: flex;
@@ -167,12 +143,7 @@ header {
     justify-content: center;
     text-align: center;
     padding: 0 2rem;
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(18, 24, 41, 0.8) 0%,
-            var(--bg-deep) 100%
-        );
+    background: radial-gradient(circle at center, rgba(18, 24, 41, 0.8) 0%, var(--bg-deep) 100%);
 }
 
 .hero-content {
@@ -199,12 +170,7 @@ header {
     font-weight: 900;
     margin-bottom: 1.5rem;
     line-height: 1.2;
-    background:
-        linear-gradient(
-            135deg,
-            #ffffff 30%,
-            var(--accent-glow) 100%
-        );
+    background: linear-gradient(135deg, #ffffff 30%, var(--accent-glow) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -221,8 +187,7 @@ header {
     justify-content: center;
 }
 
-.btn-primary,
-.btn-secondary {
+.btn-primary, .btn-secondary {
     padding: 0.8rem 1.8rem;
     border-radius: 6px;
     font-weight: 600;
@@ -237,8 +202,7 @@ header {
 
 .btn-primary:hover {
     background-color: #0ea5e9;
-    box-shadow:
-        0 0 20px rgba(56, 189, 248, 0.4);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
 }
 
 .btn-secondary {
@@ -252,9 +216,7 @@ header {
     color: var(--accent-glow);
 }
 
-
 /* --- INNER PAGE LAYOUTS --- */
-
 .page-content {
     padding: 10rem 2rem 5rem 2rem;
     max-width: 1200px;
@@ -265,12 +227,7 @@ header {
     font-family: var(--font-heading);
     font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: 2rem;
-    background:
-        linear-gradient(
-            135deg,
-            #ffffff 30%,
-            var(--accent-glow) 100%
-        );
+    background: linear-gradient(135deg, #ffffff 30%, var(--accent-glow) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -281,9 +238,7 @@ header {
     font-size: 1.05rem;
 }
 
-
 /* --- PHOTO-CENTRIC ABOUT US LAYOUT --- */
-
 .about-grid-photo {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -297,8 +252,7 @@ header {
     padding: 2rem;
     border-radius: 12px;
     border: 1px solid rgba(56, 189, 248, 0.2);
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     text-align: center;
 }
 
@@ -309,8 +263,7 @@ header {
     border-radius: 50%;
     overflow: hidden;
     border: 3px solid var(--accent-glow);
-    box-shadow:
-        0 0 20px rgba(56, 189, 248, 0.3);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
 }
 
 .founder-img-container img {
@@ -334,9 +287,7 @@ header {
     letter-spacing: 1px;
 }
 
-
 /* --- FOOTER STYLES --- */
-
 footer {
     background-color: var(--bg-surface);
     border-top: 1px solid rgba(56, 189, 248, 0.1);
@@ -384,23 +335,18 @@ footer {
     font-size: 0.85rem;
 }
 
-
-/* --- RESPONSIVE LAYOUT --- */
-
+/* Responsive layout for mobile/tablets */
 @media (max-width: 768px) {
-
     .about-grid-photo {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
-
+    
     .founder-img-container {
         width: 150px;
         height: 150px;
     }
 }
-
-
 /* =========================================
    🐿️ WALKING WEB SQUIRREL ASSISTANT
    ========================================= */
@@ -413,12 +359,9 @@ footer {
     font-family: var(--font-body);
 }
 
-
-/* SQUIRREL BUTTON */
-
 .squirrel-toggle {
-    width: 125px;
-    height: 125px;
+    width: 95px;
+    height: 95px;
     border: none;
     background: transparent;
     cursor: pointer;
@@ -437,21 +380,13 @@ footer {
     border-radius: 50%;
 }
 
-
-/* SQUIRREL CHARACTER */
-
 .squirrel-character {
     position: relative;
-    width: 100px;
-    height: 110px;
+    width: 78px;
+    height: 86px;
     margin: auto;
     animation: squirrel-float 3s ease-in-out infinite;
-
-    filter:
-        drop-shadow(0 0 8px rgba(56, 189, 248, 0.65))
-        drop-shadow(0 0 18px rgba(245, 158, 11, 0.35));
 }
-
 
 /* SQUIRREL HEAD */
 
@@ -459,7 +394,7 @@ footer {
     position: absolute;
     width: 50px;
     height: 47px;
-    background: #c47a16;
+    background: #a16207;
     border: 2px solid #78350f;
     border-radius: 50% 50% 45% 45%;
     top: 13px;
@@ -467,14 +402,13 @@ footer {
     z-index: 3;
 }
 
-
 /* EARS */
 
 .squirrel-ear {
     position: absolute;
     width: 21px;
     height: 28px;
-    background: #c47a16;
+    background: #a16207;
     border: 2px solid #78350f;
     top: 1px;
     z-index: 2;
@@ -491,7 +425,6 @@ footer {
     border-radius: 30% 80% 30% 50%;
     transform: rotate(20deg);
 }
-
 
 /* EYES */
 
@@ -515,11 +448,9 @@ footer {
     right: 14px;
 }
 
-
 /* BLINKING */
 
 @keyframes squirrel-blink {
-
     0%,
     92%,
     100% {
@@ -530,7 +461,6 @@ footer {
         transform: scaleY(0.1);
     }
 }
-
 
 /* GLASSES */
 
@@ -562,7 +492,6 @@ footer {
     top: 5px;
 }
 
-
 /* NOSE */
 
 .squirrel-nose {
@@ -576,7 +505,6 @@ footer {
     z-index: 6;
 }
 
-
 /* MOUTH */
 
 .squirrel-mouth {
@@ -589,14 +517,13 @@ footer {
     top: 35px;
 }
 
-
 /* BODY */
 
 .squirrel-body {
     position: absolute;
     width: 40px;
     height: 37px;
-    background: #a95712;
+    background: #92400e;
     border: 2px solid #78350f;
     border-radius: 50%;
     left: 19px;
@@ -604,14 +531,13 @@ footer {
     z-index: 2;
 }
 
-
 /* ARMS */
 
 .squirrel-arm {
     position: absolute;
     width: 10px;
     height: 24px;
-    background: #c47a16;
+    background: #a16207;
     border: 2px solid #78350f;
     border-radius: 50%;
     top: 54px;
@@ -628,14 +554,13 @@ footer {
     transform: rotate(-25deg);
 }
 
-
 /* TAIL */
 
 .squirrel-tail {
     position: absolute;
     width: 38px;
     height: 54px;
-    background: #d06a12;
+    background: #b45309;
     border: 2px solid #78350f;
     border-radius: 65% 70% 60% 40%;
     right: -2px;
@@ -646,7 +571,6 @@ footer {
 }
 
 @keyframes squirrel-tail-wag {
-
     0%,
     100% {
         transform: rotate(-5deg);
@@ -657,11 +581,9 @@ footer {
     }
 }
 
-
 /* FLOATING ANIMATION */
 
 @keyframes squirrel-float {
-
     0%,
     100% {
         transform: translateY(0);
@@ -672,13 +594,12 @@ footer {
     }
 }
 
-
 /* CHAT WINDOW */
 
 .squirrel-chat {
     position: absolute;
     right: 0;
-    bottom: 135px;
+    bottom: 105px;
     width: 360px;
     max-width: calc(100vw - 24px);
     background: var(--bg-surface);
@@ -690,9 +611,7 @@ footer {
     overflow: hidden;
     opacity: 0;
     visibility: hidden;
-    transform:
-        translateY(15px)
-        scale(0.95);
+    transform: translateY(15px) scale(0.95);
     transform-origin: bottom right;
     transition:
         opacity 0.25s ease,
@@ -703,19 +622,15 @@ footer {
 .squirrel-assistant.open .squirrel-chat {
     opacity: 1;
     visibility: visible;
-    transform:
-        translateY(0)
-        scale(1);
+    transform: translateY(0) scale(1);
 }
-
 
 /* CHAT HEADER */
 
 .squirrel-chat-header {
     padding: 1rem;
     background: rgba(56, 189, 248, 0.08);
-    border-bottom:
-        1px solid rgba(56, 189, 248, 0.15);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.15);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -733,7 +648,6 @@ footer {
     font-size: 0.75rem;
 }
 
-
 /* CLOSE BUTTON */
 
 .squirrel-close {
@@ -748,7 +662,6 @@ footer {
 .squirrel-close:hover {
     color: var(--accent-glow);
 }
-
 
 /* MESSAGES */
 
@@ -785,7 +698,6 @@ footer {
     margin-bottom: 0.3rem;
 }
 
-
 /* SUGGESTED QUESTIONS */
 
 .squirrel-questions {
@@ -813,23 +725,20 @@ footer {
     color: var(--accent-glow);
 }
 
-
 /* INPUT AREA */
 
 .squirrel-input-area {
     display: flex;
     gap: 0.5rem;
     padding: 0.75rem 1rem;
-    border-top:
-        1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .squirrel-input-area input {
     flex: 1;
     min-width: 0;
     background: var(--bg-deep);
-    border:
-        1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     padding: 0.6rem 0.7rem;
     color: var(--text-main);
@@ -839,8 +748,7 @@ footer {
 
 .squirrel-input-area input:focus {
     border-color: var(--accent-glow);
-    box-shadow:
-        0 0 8px rgba(56, 189, 248, 0.15);
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.15);
 }
 
 .squirrel-input-area button {
@@ -857,19 +765,17 @@ footer {
     transform: scale(1.05);
 }
 
-
 /* BOOKING BUTTON */
 
 .squirrel-book-button {
     display: block;
     margin: 0 1rem 1rem;
     padding: 0.7rem;
-    background:
-        linear-gradient(
-            135deg,
-            var(--accent-warm),
-            #d97706
-        );
+    background: linear-gradient(
+        135deg,
+        var(--accent-warm),
+        #d97706
+    );
     color: var(--bg-deep);
     text-align: center;
     border-radius: 8px;
@@ -883,12 +789,10 @@ footer {
 
 .squirrel-book-button:hover {
     transform: translateY(-2px);
-    box-shadow:
-        0 0 15px rgba(245, 158, 11, 0.35);
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.35);
 }
 
-
-/* MOBILE SQUIRREL */
+/* MOBILE */
 
 @media (max-width: 600px) {
 
@@ -908,9 +812,6 @@ footer {
     }
 
     .squirrel-character {
-        width: 78px;
-        height: 86px;
         transform: scale(0.9);
     }
 }
-```
