@@ -1,11 +1,11 @@
-* --- CSS VARIABLES & THEME --- */
+/* --- CSS VARIABLES & THEME --- */
 :root {
-    --bg-deep: #080b14;         /* Deep cosmic space slate */
-    --bg-surface: #121829;       /* Lighter dark surface for cards/nav */
-    --text-main: #e2e8f0;        /* Soft starlight white */
-    --text-muted: #94a3b8;       /* Cosmic dust gray */
-    --accent-glow: #38bdf8;      /* Future electric cyan */
-    --accent-warm: #f59e0b;      /* Warm starlight gold / amber */
+    --bg-deep: #080b14;
+    --bg-surface: #121829;
+    --text-main: #e2e8f0;
+    --text-muted: #94a3b8;
+    --accent-glow: #38bdf8;
+    --accent-warm: #f59e0b;
     --font-heading: 'Orbitron', sans-serif;
     --font-body: 'Plus Jakarta Sans', sans-serif;
 }
@@ -339,10 +339,10 @@ footer {
    ========================================= */
 .squirrel-assistant {
     position: fixed;
-    left: 24px;       /* Desktop: Left side */
+    left: 32px;       /* Desktop: Left side */
     right: auto;      
-    bottom: 24px;
-    z-index: 900;
+    bottom: 32px;
+    z-index: 1100;
     font-family: var(--font-body);
 }
 
