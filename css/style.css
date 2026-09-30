@@ -1,16 +1,20 @@
+```css
 /* --- CSS VARIABLES & THEME --- */
+
 :root {
-    --bg-deep: #080b14;          /* Deep cosmic space slate */
-    --bg-surface: #121829;       /* Lighter dark surface for cards/nav */
-    --text-main: #e2e8f0;        /* Soft starlight white */
-    --text-muted: #94a3b8;       /* Cosmic dust gray */
-    --accent-glow: #38bdf8;      /* Future electric cyan */
-    --accent-warm: #f59e0b;      /* Warm starlight gold / amber */
+    --bg-deep: #080b14;
+    --bg-surface: #121829;
+    --text-main: #e2e8f0;
+    --text-muted: #94a3b8;
+    --accent-glow: #38bdf8;
+    --accent-warm: #f59e0b;
     --font-heading: 'Orbitron', sans-serif;
     --font-body: 'Plus Jakarta Sans', sans-serif;
 }
 
+
 /* --- BASE STYLES --- */
+
 * {
     margin: 0;
     padding: 0;
@@ -25,7 +29,9 @@ body {
     overflow-x: hidden;
 }
 
+
 /* --- NAVIGATION --- */
+
 header {
     background-color: rgba(18, 24, 41, 0.85);
     backdrop-filter: blur(10px);
@@ -73,25 +79,35 @@ header {
     transition: color 0.3s ease;
 }
 
-.nav-links a:hover, .nav-links a.active {
+.nav-links a:hover,
+.nav-links a.active {
     color: var(--accent-glow);
 }
 
 .cta-btn {
-    background: linear-gradient(135deg, var(--accent-warm), #d97706);
+    background: linear-gradient(
+        135deg,
+        var(--accent-warm),
+        #d97706
+    );
     color: #080b14 !important;
     padding: 0.6rem 1.2rem;
     border-radius: 6px;
     font-weight: 600 !important;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .cta-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+    box-shadow:
+        0 0 15px rgba(245, 158, 11, 0.4);
 }
 
+
 /* --- DROPDOWN MENU STYLES --- */
+
 .dropdown {
     position: relative;
 }
@@ -100,25 +116,29 @@ header {
     position: absolute;
     top: 100%;
     left: 50%;
-    transform: translateX(-50%) translateY(10px);
+    transform:
+        translateX(-50%)
+        translateY(10px);
     background-color: var(--bg-surface);
     min-width: 280px;
     list-style: none;
     padding: 0.5rem 0;
     border-radius: 8px;
     border: 1px solid rgba(56, 189, 248, 0.2);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.5);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
     z-index: 1001;
 }
 
-/* Show dropdown on hover */
 .dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) translateY(0);
+    transform:
+        translateX(-50%)
+        translateY(0);
 }
 
 .dropdown-menu li a {
@@ -127,7 +147,9 @@ header {
     color: var(--text-muted);
     font-size: 0.9rem;
     white-space: nowrap;
-    transition: background 0.2s ease, color 0.2s ease;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
 }
 
 .dropdown-menu li a:hover {
@@ -135,7 +157,9 @@ header {
     color: var(--accent-glow);
 }
 
+
 /* --- HERO SECTION --- */
+
 .hero {
     min-height: 100vh;
     display: flex;
@@ -143,7 +167,12 @@ header {
     justify-content: center;
     text-align: center;
     padding: 0 2rem;
-    background: radial-gradient(circle at center, rgba(18, 24, 41, 0.8) 0%, var(--bg-deep) 100%);
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(18, 24, 41, 0.8) 0%,
+            var(--bg-deep) 100%
+        );
 }
 
 .hero-content {
@@ -170,7 +199,12 @@ header {
     font-weight: 900;
     margin-bottom: 1.5rem;
     line-height: 1.2;
-    background: linear-gradient(135deg, #ffffff 30%, var(--accent-glow) 100%);
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 30%,
+            var(--accent-glow) 100%
+        );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -187,7 +221,8 @@ header {
     justify-content: center;
 }
 
-.btn-primary, .btn-secondary {
+.btn-primary,
+.btn-secondary {
     padding: 0.8rem 1.8rem;
     border-radius: 6px;
     font-weight: 600;
@@ -202,7 +237,8 @@ header {
 
 .btn-primary:hover {
     background-color: #0ea5e9;
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+    box-shadow:
+        0 0 20px rgba(56, 189, 248, 0.4);
 }
 
 .btn-secondary {
@@ -216,7 +252,9 @@ header {
     color: var(--accent-glow);
 }
 
+
 /* --- INNER PAGE LAYOUTS --- */
+
 .page-content {
     padding: 10rem 2rem 5rem 2rem;
     max-width: 1200px;
@@ -227,7 +265,12 @@ header {
     font-family: var(--font-heading);
     font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: 2rem;
-    background: linear-gradient(135deg, #ffffff 30%, var(--accent-glow) 100%);
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 30%,
+            var(--accent-glow) 100%
+        );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -238,7 +281,9 @@ header {
     font-size: 1.05rem;
 }
 
+
 /* --- PHOTO-CENTRIC ABOUT US LAYOUT --- */
+
 .about-grid-photo {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -252,7 +297,8 @@ header {
     padding: 2rem;
     border-radius: 12px;
     border: 1px solid rgba(56, 189, 248, 0.2);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.4);
     text-align: center;
 }
 
@@ -263,7 +309,8 @@ header {
     border-radius: 50%;
     overflow: hidden;
     border: 3px solid var(--accent-glow);
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+    box-shadow:
+        0 0 20px rgba(56, 189, 248, 0.3);
 }
 
 .founder-img-container img {
@@ -287,7 +334,9 @@ header {
     letter-spacing: 1px;
 }
 
+
 /* --- FOOTER STYLES --- */
+
 footer {
     background-color: var(--bg-surface);
     border-top: 1px solid rgba(56, 189, 248, 0.1);
@@ -335,18 +384,23 @@ footer {
     font-size: 0.85rem;
 }
 
-/* Responsive layout for mobile/tablets */
+
+/* --- RESPONSIVE LAYOUT --- */
+
 @media (max-width: 768px) {
+
     .about-grid-photo {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
-    
+
     .founder-img-container {
         width: 150px;
         height: 150px;
     }
 }
+
+
 /* =========================================
    🐿️ WALKING WEB SQUIRREL ASSISTANT
    ========================================= */
@@ -358,6 +412,9 @@ footer {
     z-index: 900;
     font-family: var(--font-body);
 }
+
+
+/* SQUIRREL BUTTON */
 
 .squirrel-toggle {
     width: 125px;
@@ -376,442 +433,5 @@ footer {
 
 .squirrel-toggle:focus-visible {
     outline: 2px solid var(--accent-glow);
-    outline-offset: 4px;
-    border-radius: 50%;
-}
-
-.squirrel-character {
-    position: relative;
-    width: 100px;
-    height: 110px;
-    margin: auto;
-    animation: squirrel-float 3s ease-in-out infinite;
-}
-
-/* SQUIRREL HEAD */
-
-.squirrel-head {
-    position: absolute;
-    width: 50px;
-    height: 47px;
-    background: #a16207;
-    border: 2px solid #78350f;
-    border-radius: 50% 50% 45% 45%;
-    top: 13px;
-    left: 13px;
-    z-index: 3;
-}
-
-/* EARS */
-
-.squirrel-ear {
-    position: absolute;
-    width: 21px;
-    height: 28px;
-    background: #a16207;
-    border: 2px solid #78350f;
-    top: 1px;
-    z-index: 2;
-}
-
-.squirrel-ear-left {
-    left: 12px;
-    border-radius: 80% 30% 50% 30%;
-    transform: rotate(-20deg);
-}
-
-.squirrel-ear-right {
-    right: 12px;
-    border-radius: 30% 80% 30% 50%;
-    transform: rotate(20deg);
-}
-
-/* EYES */
-
-.squirrel-eye {
-    position: absolute;
-    width: 6px;
-    height: 8px;
-    background: #111827;
-    border-radius: 50%;
-    top: 20px;
-    z-index: 4;
-    transform-origin: center;
-    animation: squirrel-blink 5s infinite;
-}
-
-.squirrel-eye-left {
-    left: 14px;
-}
-
-.squirrel-eye-right {
-    right: 14px;
-}
-
-/* BLINKING */
-
-@keyframes squirrel-blink {
-    0%,
-    92%,
-    100% {
-        transform: scaleY(1);
-    }
-
-    95% {
-        transform: scaleY(0.1);
-    }
-}
-
-/* GLASSES */
-
-.squirrel-glasses {
-    position: absolute;
-    top: 17px;
-    left: 8px;
-    width: 35px;
-    display: flex;
-    justify-content: space-between;
-    z-index: 5;
-}
-
-.squirrel-glasses span {
-    width: 16px;
-    height: 13px;
-    border: 2px solid #111827;
-    border-radius: 50%;
-    background: rgba(56, 189, 248, 0.18);
-}
-
-.squirrel-glasses::after {
-    content: "";
-    position: absolute;
-    width: 6px;
-    height: 2px;
-    background: #111827;
-    left: 14px;
-    top: 5px;
-}
-
-/* NOSE */
-
-.squirrel-nose {
-    position: absolute;
-    width: 7px;
-    height: 5px;
-    background: #111827;
-    border-radius: 50%;
-    left: 21px;
-    top: 31px;
-    z-index: 6;
-}
-
-/* MOUTH */
-
-.squirrel-mouth {
-    position: absolute;
-    width: 10px;
-    height: 5px;
-    border-bottom: 2px solid #111827;
-    border-radius: 50%;
-    left: 19px;
-    top: 35px;
-}
-
-/* BODY */
-
-.squirrel-body {
-    position: absolute;
-    width: 40px;
-    height: 37px;
-    background: #92400e;
-    border: 2px solid #78350f;
-    border-radius: 50%;
-    left: 19px;
-    top: 51px;
-    z-index: 2;
-}
-
-/* ARMS */
-
-.squirrel-arm {
-    position: absolute;
-    width: 10px;
-    height: 24px;
-    background: #a16207;
-    border: 2px solid #78350f;
-    border-radius: 50%;
-    top: 54px;
-    z-index: 3;
-}
-
-.squirrel-arm-left {
-    left: 14px;
-    transform: rotate(25deg);
-}
-
-.squirrel-arm-right {
-    right: 10px;
-    transform: rotate(-25deg);
-}
-
-/* TAIL */
-
-.squirrel-tail {
-    position: absolute;
-    width: 38px;
-    height: 54px;
-    background: #b45309;
-    border: 2px solid #78350f;
-    border-radius: 65% 70% 60% 40%;
-    right: -2px;
-    top: 25px;
-    transform-origin: bottom left;
-    z-index: 1;
-    animation: squirrel-tail-wag 1.5s ease-in-out infinite;
-}
-
-@keyframes squirrel-tail-wag {
-    0%,
-    100% {
-        transform: rotate(-5deg);
-    }
-
-    50% {
-        transform: rotate(12deg);
-    }
-}
-
-/* FLOATING ANIMATION */
-
-@keyframes squirrel-float {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-5px);
-    }
-}
-
-/* CHAT WINDOW */
-
-.squirrel-chat {
-    position: absolute;
-    right: 0;
-    bottom: 105px;
-    width: 360px;
-    max-width: calc(100vw - 24px);
-    background: var(--bg-surface);
-    border: 1px solid rgba(56, 189, 248, 0.3);
-    border-radius: 16px;
-    box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.5),
-        0 0 25px rgba(56, 189, 248, 0.12);
-    overflow: hidden;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(15px) scale(0.95);
-    transform-origin: bottom right;
-    transition:
-        opacity 0.25s ease,
-        transform 0.25s ease,
-        visibility 0.25s;
-}
-
-.squirrel-assistant.open .squirrel-chat {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0) scale(1);
-}
-
-/* CHAT HEADER */
-
-.squirrel-chat-header {
-    padding: 1rem;
-    background: rgba(56, 189, 248, 0.08);
-    border-bottom: 1px solid rgba(56, 189, 248, 0.15);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.squirrel-chat-header strong {
-    display: block;
-    color: var(--text-main);
-    font-family: var(--font-heading);
-    font-size: 0.85rem;
-}
-
-.squirrel-chat-header span {
-    color: var(--text-muted);
-    font-size: 0.75rem;
-}
-
-/* CLOSE BUTTON */
-
-.squirrel-close {
-    background: none;
-    border: none;
-    color: var(--text-muted);
-    font-size: 1.5rem;
-    cursor: pointer;
-    line-height: 1;
-}
-
-.squirrel-close:hover {
-    color: var(--accent-glow);
-}
-
-/* MESSAGES */
-
-.squirrel-messages {
-    padding: 1rem;
-    max-height: 270px;
-    overflow-y: auto;
-}
-
-.squirrel-message {
-    padding: 0.75rem 1rem;
-    border-radius: 12px;
-    margin-bottom: 0.7rem;
-    font-size: 0.88rem;
-}
-
-.squirrel-bot-message {
-    background: rgba(56, 189, 248, 0.08);
-    color: var(--text-main);
-}
-
-.squirrel-user-message {
-    background: rgba(245, 158, 11, 0.12);
-    color: var(--text-main);
-    margin-left: 2rem;
-}
-
-.squirrel-bot-message ul {
-    margin-top: 0.5rem;
-    padding-left: 1.2rem;
-}
-
-.squirrel-bot-message li {
-    margin-bottom: 0.3rem;
-}
-
-/* SUGGESTED QUESTIONS */
-
-.squirrel-questions {
-    padding: 0 1rem 0.75rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.squirrel-questions button {
-    background: transparent;
-    border: 1px solid rgba(56, 189, 248, 0.3);
-    color: var(--text-main);
-    padding: 0.45rem 0.7rem;
-    border-radius: 20px;
-    cursor: pointer;
-    font-family: var(--font-body);
-    font-size: 0.75rem;
-    transition: all 0.2s ease;
-}
-
-.squirrel-questions button:hover {
-    background: rgba(56, 189, 248, 0.1);
-    border-color: var(--accent-glow);
-    color: var(--accent-glow);
-}
-
-/* INPUT AREA */
-
-.squirrel-input-area {
-    display: flex;
-    gap: 0.5rem;
-    padding: 0.75rem 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.squirrel-input-area input {
-    flex: 1;
-    min-width: 0;
-    background: var(--bg-deep);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 0.6rem 0.7rem;
-    color: var(--text-main);
-    font-family: var(--font-body);
-    outline: none;
-}
-
-.squirrel-input-area input:focus {
-    border-color: var(--accent-glow);
-    box-shadow: 0 0 8px rgba(56, 189, 248, 0.15);
-}
-
-.squirrel-input-area button {
-    width: 40px;
-    border: none;
-    border-radius: 8px;
-    background: var(--accent-glow);
-    color: var(--bg-deep);
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.squirrel-input-area button:hover {
-    transform: scale(1.05);
-}
-
-/* BOOKING BUTTON */
-
-.squirrel-book-button {
-    display: block;
-    margin: 0 1rem 1rem;
-    padding: 0.7rem;
-    background: linear-gradient(
-        135deg,
-        var(--accent-warm),
-        #d97706
-    );
-    color: var(--bg-deep);
-    text-align: center;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.85rem;
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.squirrel-book-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 15px rgba(245, 158, 11, 0.35);
-}
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-
-    .squirrel-assistant {
-        right: 10px;
-        bottom: 10px;
-    }
-
-    .squirrel-chat {
-        width: calc(100vw - 20px);
-        bottom: 90px;
-    }
-
-    .squirrel-toggle {
-        width: 80px;
-        height: 80px;
-    }
-
-    .squirrel-character {
-        transform: scale(0.9);
-    }
-}
+    outline-off
+```
