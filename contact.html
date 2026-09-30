@@ -1,32 +1,899 @@
-<form action="https://api.web3forms.com/submit" method="POST" id="customForm">
-  
-  <!-- Access Key -->
-  <input type="hidden" name="access_key" value="42af2753-6316-4fd4-b6ba-9d8bf53cfda1">
+<!DOCTYPE html>
 
-  <!-- Example Name Field -->
-  <div class="form-group">
-    <label for="name">Full Name</label>
-    <input type="text" id="name" name="name" required>
-  </div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book With Us | The Walking Web LLC</title>
 
-  <!-- Example Email Field -->
-  <div class="form-group">
-    <label for="email">Email Address</label>
-    <input type="email" id="email" name="email" required>
-  </div>
+```
+<link rel="stylesheet" href="css/style.css">
 
-  <!-- Date Dropdown Selection -->
-  <div class="form-group">
-    <label for="appointment_date">Select Date</label>
-    <select id="appointment_date" name="appointment_date" required>
-      <option value="" disabled selected>-- Choose a date --</option>
-      <option value="2026-10-01">October 1, 2026</option>
-      <option value="2026-10-02">October 2, 2026</option>
-      <option value="2026-10-03">October 3, 2026</option>
-      <option value="2026-10-04">October 4, 2026</option>
-    </select>
-  </div>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Submit Button -->
-  <button type="submit">Submit Request</button>
-</form>
+<style>
+
+    /* ==============================
+       ANIMATED MOON BACKGROUND
+    ============================== */
+
+    body {
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    .animated-moon-bg {
+        position: fixed;
+        top: 50px;
+        right: 80px;
+        width: 140px;
+        height: 140px;
+        background: radial-gradient(
+            circle at 35% 35%,
+            #ffffff 0%,
+            #00e5ff 40%,
+            #050b14 80%
+        );
+        border-radius: 50%;
+        box-shadow:
+            0 0 50px rgba(0, 229, 255, 0.4),
+            inset -15px -15px 30px rgba(0, 0, 0, 0.8);
+        animation:
+            floatMoon 8s ease-in-out infinite alternate,
+            pulseGlow 4s ease-in-out infinite alternate;
+        z-index: -1;
+        opacity: 0.85;
+    }
+
+    @keyframes floatMoon {
+        0% {
+            transform: translateY(0px) rotate(0deg);
+        }
+
+        100% {
+            transform: translateY(-20px) rotate(3deg);
+        }
+    }
+
+    @keyframes pulseGlow {
+        0% {
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+        }
+
+        100% {
+            box-shadow: 0 0 60px rgba(0, 229, 255, 0.6);
+        }
+    }
+
+
+    /* ==============================
+       BOOKING FORM
+    ============================== */
+
+    .booking-form-container {
+        max-width: 650px;
+        margin: 0 auto;
+        background: rgba(10, 25, 47, 0.75);
+        border: 1px solid rgba(0, 229, 255, 0.2);
+        padding: 2.5rem;
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: var(--text-main);
+    }
+
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        background: rgba(5, 11, 20, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 6px;
+        color: #ffffff;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+        box-sizing: border-box;
+    }
+
+
+    .form-group input:focus,
+    .form-group select:focus {
+        outline: none;
+        border-color: var(--accent-cyan);
+        box-shadow: 0 0 10px rgba(0, 229, 255, 0.25);
+    }
+
+
+    .form-group select option {
+        background-color: #0a192f;
+        color: #ffffff;
+    }
+
+
+    /* Calendar input */
+
+    .form-group input[type="date"] {
+        color-scheme: dark;
+        cursor: pointer;
+    }
+
+
+    /* Success Message */
+
+    #success-message {
+        display: none;
+        margin-top: 1.5rem;
+        padding: 1.25rem;
+        background: rgba(0, 229, 255, 0.1);
+        border: 1px solid var(--accent-cyan);
+        border-radius: 6px;
+        text-align: center;
+        color: var(--accent-cyan);
+        line-height: 1.6;
+    }
+
+
+    /* Error Message */
+
+    #error-message {
+        display: none;
+        margin-top: 1.5rem;
+        padding: 1.25rem;
+        background: rgba(255, 70, 70, 0.1);
+        border: 1px solid #ff4646;
+        border-radius: 6px;
+        text-align: center;
+        color: #ff8a8a;
+        line-height: 1.6;
+    }
+
+
+    /* Button loading state */
+
+    .submit-button-loading {
+        opacity: 0.7;
+        pointer-events: none;
+    }
+
+
+    /* Mobile */
+
+    @media (max-width: 768px) {
+
+        .animated-moon-bg {
+            width: 80px;
+            height: 80px;
+            top: 20px;
+            right: 20px;
+        }
+
+        .booking-form-container {
+            padding: 1.5rem;
+        }
+
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- ==============================
+     ANIMATED COSMIC MOON
+============================== -->
+
+<div class="animated-moon-bg"></div>
+
+
+<!-- ==============================
+     NAVIGATION
+============================== -->
+
+<header>
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            Walking<span>Web</span>
+        </a>
+
+        <nav>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="about.html">About Us</a>
+                </li>
+
+
+                <!-- Services Dropdown -->
+
+                <li class="dropdown">
+
+                    <a href="#" class="drop-btn">
+                        Services ▾
+                    </a>
+
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            <a href="service-web-design.html">
+                                Website Design
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="service-marketing.html">
+                                Marketing Insights & Social Media
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="service-ai-audit.html">
+                                AI Business Efficiency Audit
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="service-digital-audit.html">
+                                Small Business Digital Presence Audit
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="service-grant.html">
+                                Grant + Funding Readiness
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="service-sop.html">
+                                SOP & Knowledge Base Creation
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="service-cx.html">
+                                Customer Experience (CX) Audit
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="service-reputation.html">
+                                Reputation & Review Management
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+
+                <li>
+                    <a href="contact.html" class="cta-btn active">
+                        Book Now
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- ==============================
+     BOOKING CONTENT
+============================== -->
+
+<main class="page-content">
+
+    <section class="content-container">
+
+        <span class="badge">
+            Start Your Transformation
+        </span>
+
+
+        <h1 style="text-align: center; margin-bottom: 2rem;">
+            Book With Us
+        </h1>
+
+
+        <div class="booking-form-container">
+
+
+            <!-- ==============================
+                 WEB3FORMS
+            ============================== -->
+
+            <form
+                action="https://api.web3forms.com/submit"
+                method="POST"
+                id="booking-form"
+            >
+
+
+                <!-- Web3Forms Access Key -->
+
+                <input
+                    type="hidden"
+                    name="access_key"
+                    value="42af2753-6316-4fd4-b6ba-9d8bf53cfda1"
+                >
+
+
+                <!-- Email Subject -->
+
+                <input
+                    type="hidden"
+                    name="subject"
+                    value="New Consultation Booking - The Walking Web LLC"
+                >
+
+
+                <!-- Spam Protection -->
+
+                <input
+                    type="checkbox"
+                    name="botcheck"
+                    style="display: none;"
+                >
+
+
+                <!-- ==============================
+                     NAME
+                ============================== -->
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="Name"
+                        required
+                        placeholder="Enter your full name"
+                    >
+
+                </div>
+
+
+                <!-- ==============================
+                     COMPANY
+                ============================== -->
+
+                <div class="form-group">
+
+                    <label for="company">
+                        Company *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="company"
+                        name="Company"
+                        required
+                        placeholder="Enter your business name"
+                    >
+
+                </div>
+
+
+                <!-- ==============================
+                     EMAIL
+                ============================== -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email *
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="Email"
+                        required
+                        placeholder="name@yourbusiness.com"
+                    >
+
+                </div>
+
+
+                <!-- ==============================
+                     PHONE
+                ============================== -->
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number *
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="Phone"
+                        required
+                        placeholder="(555) 000-0000"
+                    >
+
+                </div>
+
+
+                <!-- ==============================
+                     SERVICE
+                ============================== -->
+
+                <div class="form-group">
+
+                    <label for="service">
+                        Type of Service *
+                    </label>
+
+                    <select
+                        id="service"
+                        name="Service_Type"
+                        required
+                    >
+
+                        <option
+                            value=""
+                            disabled
+                            selected
+                        >
+                            -- Select a Service --
+                        </option>
+
+                        <option value="Website Design">
+                            Website Design
+                        </option>
+
+                        <option value="Marketing Insights & Social Media">
+                            Marketing Insights & Social Media
+                        </option>
+
+                        <option value="AI Business Efficiency Audit">
+                            AI Business Efficiency Audit
+                        </option>
+
+                        <option value="Small Business Digital Presence Audit">
+                            Small Business Digital Presence Audit
+                        </option>
+
+                        <option value="Grant + Funding Readiness">
+                            Grant + Funding Readiness
+                        </option>
+
+                        <option value="SOP & Knowledge Base Creation">
+                            SOP & Knowledge Base Creation
+                        </option>
+
+                        <option value="Customer Experience (CX) Audit">
+                            Customer Experience (CX) Audit
+                        </option>
+
+                        <option value="Reputation & Review Management">
+                            Reputation & Review Management
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- ==============================
+                     DATE PICKER
+                ============================== -->
+
+                <div class="form-group">
+
+                    <label for="callback-date">
+                        Preferred Date *
+                    </label>
+
+                    <input
+                        type="date"
+                        id="callback-date"
+                        name="Preferred_Date"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- ==============================
+                     TIME DROPDOWN
+                ============================== -->
+
+                <div class="form-group">
+
+                    <label for="callback-time">
+                        Preferred Time *
+                    </label>
+
+                    <select
+                        id="callback-time"
+                        name="Preferred_Time"
+                        required
+                    >
+
+                        <option
+                            value=""
+                            disabled
+                            selected
+                        >
+                            -- Select a Time --
+                        </option>
+
+
+                        <option value="9:00 AM">
+                            9:00 AM
+                        </option>
+
+                        <option value="9:30 AM">
+                            9:30 AM
+                        </option>
+
+                        <option value="10:00 AM">
+                            10:00 AM
+                        </option>
+
+                        <option value="10:30 AM">
+                            10:30 AM
+                        </option>
+
+                        <option value="11:00 AM">
+                            11:00 AM
+                        </option>
+
+                        <option value="11:30 AM">
+                            11:30 AM
+                        </option>
+
+                        <option value="12:00 PM">
+                            12:00 PM
+                        </option>
+
+                        <option value="12:30 PM">
+                            12:30 PM
+                        </option>
+
+                        <option value="1:00 PM">
+                            1:00 PM
+                        </option>
+
+                        <option value="1:30 PM">
+                            1:30 PM
+                        </option>
+
+                        <option value="2:00 PM">
+                            2:00 PM
+                        </option>
+
+                        <option value="2:30 PM">
+                            2:30 PM
+                        </option>
+
+                        <option value="3:00 PM">
+                            3:00 PM
+                        </option>
+
+                        <option value="3:30 PM">
+                            3:30 PM
+                        </option>
+
+                        <option value="4:00 PM">
+                            4:00 PM
+                        </option>
+
+                        <option value="4:30 PM">
+                            4:30 PM
+                        </option>
+
+                        <option value="5:00 PM">
+                            5:00 PM
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- ==============================
+                     SUBMIT BUTTON
+                ============================== -->
+
+                <div
+                    style="
+                        margin-top: 2rem;
+                        text-align: center;
+                    "
+                >
+
+                    <button
+                        type="submit"
+                        id="submit-button"
+                        class="btn-primary"
+                        style="
+                            width: 100%;
+                            border: none;
+                            cursor: pointer;
+                            font-size: 1rem;
+                            padding: 1rem;
+                        "
+                    >
+                        Submit Booking
+                    </button>
+
+                </div>
+
+
+            </form>
+
+
+            <!-- ==============================
+                 SUCCESS MESSAGE
+            ============================== -->
+
+            <div id="success-message">
+
+                <strong>
+                    Booking Request Received! ✨
+                </strong>
+
+                <br><br>
+
+                Thank you for choosing
+                The Walking Web LLC.
+
+                We received your booking request and
+                will contact you to confirm your
+                selected date and time.
+
+            </div>
+
+
+            <!-- ==============================
+                 ERROR MESSAGE
+            ============================== -->
+
+            <div id="error-message">
+
+                Something went wrong while submitting
+                your booking.
+
+                <br><br>
+
+                Please try again or email us directly at
+
+                <a href="mailto:contact@walkingweb.net">
+                    contact@walkingweb.net
+                </a>.
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ==============================
+     FOOTER
+============================== -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div class="footer-info">
+
+            <h3>
+                Walking Web LLC
+            </h3>
+
+            <p>
+                Email:
+
+                <a href="mailto:contact@walkingweb.net">
+                    contact@walkingweb.net
+                </a>
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- ==============================
+     FORM JAVASCRIPT
+============================== -->
+
+<script>
+
+    const form = document.getElementById("booking-form");
+
+    const submitButton =
+        document.getElementById("submit-button");
+
+    const successMessage =
+        document.getElementById("success-message");
+
+    const errorMessage =
+        document.getElementById("error-message");
+
+    const dateInput =
+        document.getElementById("callback-date");
+
+
+    /* --------------------------------
+       PREVENT PAST DATES
+    -------------------------------- */
+
+    const today = new Date();
+
+    const year =
+        today.getFullYear();
+
+    const month =
+        String(today.getMonth() + 1)
+            .padStart(2, "0");
+
+    const day =
+        String(today.getDate())
+            .padStart(2, "0");
+
+    dateInput.min =
+        `${year}-${month}-${day}`;
+
+
+    /* --------------------------------
+       SUBMIT FORM
+    -------------------------------- */
+
+    form.addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+
+            submitButton.textContent =
+                "Submitting...";
+
+            submitButton.classList.add(
+                "submit-button-loading"
+            );
+
+
+            successMessage.style.display =
+                "none";
+
+            errorMessage.style.display =
+                "none";
+
+
+            const formData =
+                new FormData(form);
+
+
+            const object =
+                Object.fromEntries(formData);
+
+
+            const json =
+                JSON.stringify(object);
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "https://api.web3forms.com/submit",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json",
+
+                                "Accept":
+                                    "application/json"
+                            },
+
+                            body: json
+                        }
+                    );
+
+
+                const result =
+                    await response.json();
+
+
+                if (
+                    response.ok &&
+                    result.success
+                ) {
+
+                    form.style.display =
+                        "none";
+
+                    successMessage.style.display =
+                        "block";
+
+                } else {
+
+                    console.error(result);
+
+                    errorMessage.style.display =
+                        "block";
+
+                    submitButton.textContent =
+                        "Submit Booking";
+
+                    submitButton.classList.remove(
+                        "submit-button-loading"
+                    );
+
+                }
+
+
+            } catch (error) {
+
+                console.error(error);
+
+                errorMessage.style.display =
+                    "block";
+
+                submitButton.textContent =
+                    "Submit Booking";
+
+                submitButton.classList.remove(
+                    "submit-button-loading"
+                );
+
+            }
+
+        }
+    );
+
+</script>
+```
+
+</body>
+</html>
