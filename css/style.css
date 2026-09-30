@@ -879,43 +879,8 @@ footer {
     border-radius: 12px;
     padding: 25px;
     text-align: center;
-    max-width: 400px;
-    margin: 30px auto;
+    max-width: 600px; /* Expands it a bit more on desktop if desired */
+    margin: 40px auto;  /* Centers it nicely with breathing room */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 255, 255, 0.1);
     font-family: 'Plus Jakarta Sans', sans-serif;
-}
-
-.google-rating-card .stars {
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-}
-
-.google-rating-card h3 {
-    font-family: 'Orbitron', sans-serif;
-    color: #ffffff;
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-}
-
-.google-rating-card p {
-    color: #b0b0c0;
-    font-size: 0.95rem;
-    margin-bottom: 20px;
-}
-
-.google-review-btn {
-    display: inline-block;
-    background: linear-gradient(135deg, #00ffff, #0088ff);
-    color: #0b0b12;
-    padding: 10px 24px;
-    border-radius: 6px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.google-review-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
 }
