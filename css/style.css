@@ -815,3 +815,28 @@ footer {
         transform: scale(0.9);
     }
 }
+/* Desktop/laptop: squirrel on the left */
+.squirrel-assistant {
+    left: 24px;
+    right: auto;
+}
+
+.squirrel-chat {
+    left: 0;
+    right: auto;
+    transform-origin: bottom left;
+}
+
+/* Mobile: squirrel remains on the right */
+@media (max-width: 600px) {
+    .squirrel-assistant {
+        left: auto;
+        right: 10px;
+    }
+
+    .squirrel-chat {
+        left: auto;
+        right: 0;
+        transform-origin: bottom right;
+    }
+}
