@@ -836,7 +836,7 @@ footer {
 
 @media (max-width: 768px) {
 
-    /* Prevent the hero content from feeling cramped */
+    /* Give the Services page a little more breathing room */
     .hero {
         padding: 40px 18px !important;
     }
@@ -845,48 +845,30 @@ footer {
         max-width: 100% !important;
     }
 
-    /* Make the Services heading readable on phones */
+    /* Services page main heading */
     .hero h1 {
-        font-size: clamp(2.2rem, 10vw, 3.5rem);
-        line-height: 1.1;
-        letter-spacing: 0.02em;
-        margin-bottom: 20px;
-        word-break: normal;
-        overflow-wrap: normal;
+        font-size: clamp(2.3rem, 11vw, 3.2rem);
+        line-height: 1.15;
+        white-space: normal;
+        letter-spacing: normal;
     }
 
-    /* Keep the service list comfortably inside the screen */
-    .hero ul {
-        margin-left: 20px;
-        padding-left: 10px;
-    }
-
-    /* Prevent long text from pushing outside the screen */
+    /* Keep page content comfortably inside the phone screen */
     .hero p,
     .hero li {
         overflow-wrap: break-word;
     }
 
-    /* Make secondary headings easier to read */
+    /* Secondary headings */
     .hero h2 {
-        font-size: clamp(1.4rem, 6vw, 2rem);
         line-height: 1.3;
     }
 
     .hero h3 {
-        font-size: clamp(1.15rem, 5vw, 1.5rem);
         line-height: 1.3;
     }
 
-    /* Keep the CTA from becoming too wide on mobile */
-    .btn-primary {
-        display: inline-block;
-        max-width: 100%;
-        box-sizing: border-box;
-        text-align: center;
-    }
-
-    /* Keep long website addresses from overflowing */
+    /* Prevent long website links from overflowing */
     .case-study a {
         overflow-wrap: anywhere;
     }
