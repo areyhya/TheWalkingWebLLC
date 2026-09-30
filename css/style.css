@@ -768,3 +768,132 @@ footer {
         transform: scale(0.9);
     }
 }
+/* Emergency squirrel/chat styling test */
+.squirrel-assistant {
+    position: fixed !important;
+    left: 24px !important;
+    right: auto !important;
+    bottom: 24px !important;
+    z-index: 99999 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.squirrel-toggle {
+    display: block !important;
+    width: 95px !important;
+    height: 95px !important;
+    background: transparent !important;
+    border: 0 !important;
+    cursor: pointer !important;
+}
+
+.squirrel-character {
+    display: block !important;
+    position: relative !important;
+    width: 78px !important;
+    height: 86px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.squirrel-chat {
+    position: absolute !important;
+    left: 0 !important;
+    right: auto !important;
+    bottom: 105px !important;
+    width: 360px !important;
+    max-width: calc(100vw - 48px) !important;
+    background: #121829 !important;
+    color: #e2e8f0 !important;
+    border: 1px solid rgba(56, 189, 248, 0.5) !important;
+    border-radius: 16px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    z-index: 100000 !important;
+}
+
+.squirrel-chat-header,
+.squirrel-messages,
+.squirrel-questions,
+.squirrel-input-area {
+    color: #e2e8f0 !important;
+}
+
+.squirrel-chat-header {
+    padding: 1rem !important;
+    background: rgba(56, 189, 248, 0.08) !important;
+}
+
+.squirrel-messages {
+    padding: 1rem !important;
+}
+
+.squirrel-message {
+    padding: 0.75rem 1rem !important;
+    margin-bottom: 0.7rem !important;
+    border-radius: 12px !important;
+}
+
+.squirrel-bot-message {
+    background: rgba(56, 189, 248, 0.12) !important;
+}
+
+.squirrel-user-message {
+    background: rgba(245, 158, 11, 0.15) !important;
+}
+
+.squirrel-questions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    padding: 0 1rem 0.75rem !important;
+}
+
+.squirrel-questions button {
+    padding: 0.45rem 0.7rem !important;
+    color: #e2e8f0 !important;
+    background: transparent !important;
+    border: 1px solid rgba(56, 189, 248, 0.5) !important;
+    border-radius: 20px !important;
+}
+
+.squirrel-input-area {
+    display: flex !important;
+    gap: 0.5rem !important;
+    padding: 0.75rem 1rem !important;
+}
+
+.squirrel-input-area input {
+    flex: 1 !important;
+    min-width: 0 !important;
+    padding: 0.6rem 0.7rem !important;
+    color: #e2e8f0 !important;
+    background: #080b14 !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.squirrel-input-area button {
+    width: 40px !important;
+    background: #38bdf8 !important;
+    color: #080b14 !important;
+    border: 0 !important;
+    border-radius: 8px !important;
+}
+
+@media (max-width: 600px) {
+    .squirrel-assistant {
+        left: auto !important;
+        right: 16px !important;
+        bottom: 16px !important;
+    }
+
+    .squirrel-chat {
+        left: auto !important;
+        right: 0 !important;
+        width: calc(100vw - 32px) !important;
+        max-width: calc(100vw - 32px) !important;
+        bottom: 90px !important;
+    }
+}
