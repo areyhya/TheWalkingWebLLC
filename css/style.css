@@ -1,6 +1,6 @@
-/* --- CSS VARIABLES & THEME --- */
+* --- CSS VARIABLES & THEME --- */
 :root {
-    --bg-deep: #080b14;          /* Deep cosmic space slate */
+    --bg-deep: #080b14;         /* Deep cosmic space slate */
     --bg-surface: #121829;       /* Lighter dark surface for cards/nav */
     --text-main: #e2e8f0;        /* Soft starlight white */
     --text-muted: #94a3b8;       /* Cosmic dust gray */
@@ -114,7 +114,6 @@ header {
     z-index: 1001;
 }
 
-/* Show dropdown on hover */
 .dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
@@ -335,25 +334,13 @@ footer {
     font-size: 0.85rem;
 }
 
-/* Responsive layout for mobile/tablets */
-@media (max-width: 768px) {
-    .about-grid-photo {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-    
-    .founder-img-container {
-        width: 150px;
-        height: 150px;
-    }
-}
 /* =========================================
    🐿️ WALKING WEB SQUIRREL ASSISTANT
    ========================================= */
-
 .squirrel-assistant {
     position: fixed;
-    right: 24px;
+    left: 24px;       /* Desktop: Left side */
+    right: auto;      
     bottom: 24px;
     z-index: 900;
     font-family: var(--font-body);
@@ -389,7 +376,6 @@ footer {
 }
 
 /* SQUIRREL HEAD */
-
 .squirrel-head {
     position: absolute;
     width: 50px;
@@ -403,7 +389,6 @@ footer {
 }
 
 /* EARS */
-
 .squirrel-ear {
     position: absolute;
     width: 21px;
@@ -427,7 +412,6 @@ footer {
 }
 
 /* EYES */
-
 .squirrel-eye {
     position: absolute;
     width: 6px;
@@ -448,22 +432,16 @@ footer {
     right: 14px;
 }
 
-/* BLINKING */
-
 @keyframes squirrel-blink {
-    0%,
-    92%,
-    100% {
+    0%, 92%, 100% {
         transform: scaleY(1);
     }
-
     95% {
         transform: scaleY(0.1);
     }
 }
 
 /* GLASSES */
-
 .squirrel-glasses {
     position: absolute;
     top: 17px;
@@ -493,7 +471,6 @@ footer {
 }
 
 /* NOSE */
-
 .squirrel-nose {
     position: absolute;
     width: 7px;
@@ -506,7 +483,6 @@ footer {
 }
 
 /* MOUTH */
-
 .squirrel-mouth {
     position: absolute;
     width: 10px;
@@ -518,7 +494,6 @@ footer {
 }
 
 /* BODY */
-
 .squirrel-body {
     position: absolute;
     width: 40px;
@@ -532,7 +507,6 @@ footer {
 }
 
 /* ARMS */
-
 .squirrel-arm {
     position: absolute;
     width: 10px;
@@ -555,7 +529,6 @@ footer {
 }
 
 /* TAIL */
-
 .squirrel-tail {
     position: absolute;
     width: 38px;
@@ -571,52 +544,42 @@ footer {
 }
 
 @keyframes squirrel-tail-wag {
-    0%,
-    100% {
+    0%, 100% {
         transform: rotate(-5deg);
     }
-
     50% {
         transform: rotate(12deg);
     }
 }
 
 /* FLOATING ANIMATION */
-
 @keyframes squirrel-float {
-    0%,
-    100% {
+    0%, 100% {
         transform: translateY(0);
     }
-
     50% {
         transform: translateY(-5px);
     }
 }
 
 /* CHAT WINDOW */
-
 .squirrel-chat {
     position: absolute;
-    right: 0;
+    left: 0;          /* Desktop: chat expands inward from the left */
+    right: auto;
     bottom: 105px;
     width: 360px;
     max-width: calc(100vw - 24px);
     background: var(--bg-surface);
     border: 1px solid rgba(56, 189, 248, 0.3);
     border-radius: 16px;
-    box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.5),
-        0 0 25px rgba(56, 189, 248, 0.12);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 25px rgba(56, 189, 248, 0.12);
     overflow: hidden;
     opacity: 0;
     visibility: hidden;
     transform: translateY(15px) scale(0.95);
-    transform-origin: bottom right;
-    transition:
-        opacity 0.25s ease,
-        transform 0.25s ease,
-        visibility 0.25s;
+    transform-origin: bottom left;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
 }
 
 .squirrel-assistant.open .squirrel-chat {
@@ -626,7 +589,6 @@ footer {
 }
 
 /* CHAT HEADER */
-
 .squirrel-chat-header {
     padding: 1rem;
     background: rgba(56, 189, 248, 0.08);
@@ -649,7 +611,6 @@ footer {
 }
 
 /* CLOSE BUTTON */
-
 .squirrel-close {
     background: none;
     border: none;
@@ -664,7 +625,6 @@ footer {
 }
 
 /* MESSAGES */
-
 .squirrel-messages {
     padding: 1rem;
     max-height: 270px;
@@ -699,7 +659,6 @@ footer {
 }
 
 /* SUGGESTED QUESTIONS */
-
 .squirrel-questions {
     padding: 0 1rem 0.75rem;
     display: flex;
@@ -726,7 +685,6 @@ footer {
 }
 
 /* INPUT AREA */
-
 .squirrel-input-area {
     display: flex;
     gap: 0.5rem;
@@ -766,25 +724,18 @@ footer {
 }
 
 /* BOOKING BUTTON */
-
 .squirrel-book-button {
     display: block;
     margin: 0 1rem 1rem;
     padding: 0.7rem;
-    background: linear-gradient(
-        135deg,
-        var(--accent-warm),
-        #d97706
-    );
+    background: linear-gradient(135deg, var(--accent-warm), #d97706);
     color: var(--bg-deep);
     text-align: center;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.85rem;
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .squirrel-book-button:hover {
@@ -792,18 +743,20 @@ footer {
     box-shadow: 0 0 15px rgba(245, 158, 11, 0.35);
 }
 
-/* MOBILE */
-
+/* --- MOBILE RESPONSIVE LAYOUT (Max-width: 600px) --- */
 @media (max-width: 600px) {
-
     .squirrel-assistant {
-        right: 10px;
-        bottom: 10px;
+        left: auto;       /* Cancel desktop left alignment */
+        right: 16px;      /* Mobile: Right side */
+        bottom: 16px;
     }
 
     .squirrel-chat {
-        width: calc(100vw - 20px);
+        left: auto;
+        right: 0;         /* Mobile chat aligns to the right side */
+        width: calc(100vw - 32px);
         bottom: 90px;
+        transform-origin: bottom right;
     }
 
     .squirrel-toggle {
@@ -813,30 +766,5 @@ footer {
 
     .squirrel-character {
         transform: scale(0.9);
-    }
-}
-/* Desktop/laptop: squirrel on the left */
-.squirrel-assistant {
-    left: 24px;
-    right: auto;
-}
-
-.squirrel-chat {
-    left: 0;
-    right: auto;
-    transform-origin: bottom left;
-}
-
-/* Mobile: squirrel remains on the right */
-@media (max-width: 600px) {
-    .squirrel-assistant {
-        left: auto;
-        right: 10px;
-    }
-
-    .squirrel-chat {
-        left: auto;
-        right: 0;
-        transform-origin: bottom right;
     }
 }
