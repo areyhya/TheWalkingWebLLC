@@ -1,11 +1,11 @@
 /* --- CSS VARIABLES & THEME --- */
 :root {
-    --bg-deep: #080b14;
-    --bg-surface: #121829;
-    --text-main: #e2e8f0;
-    --text-muted: #94a3b8;
-    --accent-glow: #38bdf8;
-    --accent-warm: #f59e0b;
+    --bg-deep: #080b14;          /* Deep cosmic space slate */
+    --bg-surface: #121829;       /* Lighter dark surface for cards/nav */
+    --text-main: #e2e8f0;        /* Soft starlight white */
+    --text-muted: #94a3b8;       /* Cosmic dust gray */
+    --accent-glow: #38bdf8;      /* Future electric cyan */
+    --accent-warm: #f59e0b;      /* Warm starlight gold / amber */
     --font-heading: 'Orbitron', sans-serif;
     --font-body: 'Plus Jakarta Sans', sans-serif;
 }
@@ -114,6 +114,7 @@ header {
     z-index: 1001;
 }
 
+/* Show dropdown on hover */
 .dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
@@ -334,15 +335,27 @@ footer {
     font-size: 0.85rem;
 }
 
+/* Responsive layout for mobile/tablets */
+@media (max-width: 768px) {
+    .about-grid-photo {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .founder-img-container {
+        width: 150px;
+        height: 150px;
+    }
+}
 /* =========================================
    🐿️ WALKING WEB SQUIRREL ASSISTANT
    ========================================= */
+
 .squirrel-assistant {
     position: fixed;
-    left: 32px;       /* Desktop: Left side */
-    right: auto;      
-    bottom: 32px;
-    z-index: 1100;
+    right: 24px;
+    bottom: 24px;
+    z-index: 900;
     font-family: var(--font-body);
 }
 
@@ -376,6 +389,7 @@ footer {
 }
 
 /* SQUIRREL HEAD */
+
 .squirrel-head {
     position: absolute;
     width: 50px;
@@ -389,6 +403,7 @@ footer {
 }
 
 /* EARS */
+
 .squirrel-ear {
     position: absolute;
     width: 21px;
@@ -412,6 +427,7 @@ footer {
 }
 
 /* EYES */
+
 .squirrel-eye {
     position: absolute;
     width: 6px;
@@ -432,16 +448,22 @@ footer {
     right: 14px;
 }
 
+/* BLINKING */
+
 @keyframes squirrel-blink {
-    0%, 92%, 100% {
+    0%,
+    92%,
+    100% {
         transform: scaleY(1);
     }
+
     95% {
         transform: scaleY(0.1);
     }
 }
 
 /* GLASSES */
+
 .squirrel-glasses {
     position: absolute;
     top: 17px;
@@ -471,6 +493,7 @@ footer {
 }
 
 /* NOSE */
+
 .squirrel-nose {
     position: absolute;
     width: 7px;
@@ -483,6 +506,7 @@ footer {
 }
 
 /* MOUTH */
+
 .squirrel-mouth {
     position: absolute;
     width: 10px;
@@ -494,6 +518,7 @@ footer {
 }
 
 /* BODY */
+
 .squirrel-body {
     position: absolute;
     width: 40px;
@@ -507,6 +532,7 @@ footer {
 }
 
 /* ARMS */
+
 .squirrel-arm {
     position: absolute;
     width: 10px;
@@ -529,6 +555,7 @@ footer {
 }
 
 /* TAIL */
+
 .squirrel-tail {
     position: absolute;
     width: 38px;
@@ -544,42 +571,52 @@ footer {
 }
 
 @keyframes squirrel-tail-wag {
-    0%, 100% {
+    0%,
+    100% {
         transform: rotate(-5deg);
     }
+
     50% {
         transform: rotate(12deg);
     }
 }
 
 /* FLOATING ANIMATION */
+
 @keyframes squirrel-float {
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-5px);
     }
 }
 
 /* CHAT WINDOW */
+
 .squirrel-chat {
     position: absolute;
-    left: 0;          /* Desktop: chat expands inward from the left */
-    right: auto;
+    right: 0;
     bottom: 105px;
     width: 360px;
     max-width: calc(100vw - 24px);
     background: var(--bg-surface);
     border: 1px solid rgba(56, 189, 248, 0.3);
     border-radius: 16px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 25px rgba(56, 189, 248, 0.12);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(56, 189, 248, 0.12);
     overflow: hidden;
     opacity: 0;
     visibility: hidden;
     transform: translateY(15px) scale(0.95);
-    transform-origin: bottom left;
-    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    transform-origin: bottom right;
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s;
 }
 
 .squirrel-assistant.open .squirrel-chat {
@@ -589,6 +626,7 @@ footer {
 }
 
 /* CHAT HEADER */
+
 .squirrel-chat-header {
     padding: 1rem;
     background: rgba(56, 189, 248, 0.08);
@@ -611,6 +649,7 @@ footer {
 }
 
 /* CLOSE BUTTON */
+
 .squirrel-close {
     background: none;
     border: none;
@@ -625,6 +664,7 @@ footer {
 }
 
 /* MESSAGES */
+
 .squirrel-messages {
     padding: 1rem;
     max-height: 270px;
@@ -659,6 +699,7 @@ footer {
 }
 
 /* SUGGESTED QUESTIONS */
+
 .squirrel-questions {
     padding: 0 1rem 0.75rem;
     display: flex;
@@ -685,6 +726,7 @@ footer {
 }
 
 /* INPUT AREA */
+
 .squirrel-input-area {
     display: flex;
     gap: 0.5rem;
@@ -724,18 +766,25 @@ footer {
 }
 
 /* BOOKING BUTTON */
+
 .squirrel-book-button {
     display: block;
     margin: 0 1rem 1rem;
     padding: 0.7rem;
-    background: linear-gradient(135deg, var(--accent-warm), #d97706);
+    background: linear-gradient(
+        135deg,
+        var(--accent-warm),
+        #d97706
+    );
     color: var(--bg-deep);
     text-align: center;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.85rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .squirrel-book-button:hover {
@@ -743,20 +792,18 @@ footer {
     box-shadow: 0 0 15px rgba(245, 158, 11, 0.35);
 }
 
-/* --- MOBILE RESPONSIVE LAYOUT (Max-width: 600px) --- */
+/* MOBILE */
+
 @media (max-width: 600px) {
+
     .squirrel-assistant {
-        left: auto;       /* Cancel desktop left alignment */
-        right: 16px;      /* Mobile: Right side */
-        bottom: 16px;
+        right: 10px;
+        bottom: 10px;
     }
 
     .squirrel-chat {
-        left: auto;
-        right: 0;         /* Mobile chat aligns to the right side */
-        width: calc(100vw - 32px);
+        width: calc(100vw - 20px);
         bottom: 90px;
-        transform-origin: bottom right;
     }
 
     .squirrel-toggle {
@@ -768,132 +815,18 @@ footer {
         transform: scale(0.9);
     }
 }
-/* Emergency squirrel/chat styling test */
-.squirrel-assistant {
-    position: fixed !important;
-    left: 24px !important;
-    right: auto !important;
-    bottom: 24px !important;
-    z-index: 99999 !important;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
-.squirrel-toggle {
-    display: block !important;
-    width: 95px !important;
-    height: 95px !important;
-    background: transparent !important;
-    border: 0 !important;
-    cursor: pointer !important;
-}
-
-.squirrel-character {
-    display: block !important;
-    position: relative !important;
-    width: 78px !important;
-    height: 86px !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-.squirrel-chat {
-    position: absolute !important;
-    left: 0 !important;
-    right: auto !important;
-    bottom: 105px !important;
-    width: 360px !important;
-    max-width: calc(100vw - 48px) !important;
-    background: #121829 !important;
-    color: #e2e8f0 !important;
-    border: 1px solid rgba(56, 189, 248, 0.5) !important;
-    border-radius: 16px !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-    z-index: 100000 !important;
-}
-
-.squirrel-chat-header,
-.squirrel-messages,
-.squirrel-questions,
-.squirrel-input-area {
-    color: #e2e8f0 !important;
-}
-
-.squirrel-chat-header {
-    padding: 1rem !important;
-    background: rgba(56, 189, 248, 0.08) !important;
-}
-
-.squirrel-messages {
-    padding: 1rem !important;
-}
-
-.squirrel-message {
-    padding: 0.75rem 1rem !important;
-    margin-bottom: 0.7rem !important;
-    border-radius: 12px !important;
-}
-
-.squirrel-bot-message {
-    background: rgba(56, 189, 248, 0.12) !important;
-}
-
-.squirrel-user-message {
-    background: rgba(245, 158, 11, 0.15) !important;
-}
-
-.squirrel-questions {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 0.5rem !important;
-    padding: 0 1rem 0.75rem !important;
-}
-
-.squirrel-questions button {
-    padding: 0.45rem 0.7rem !important;
-    color: #e2e8f0 !important;
-    background: transparent !important;
-    border: 1px solid rgba(56, 189, 248, 0.5) !important;
-    border-radius: 20px !important;
-}
-
-.squirrel-input-area {
-    display: flex !important;
-    gap: 0.5rem !important;
-    padding: 0.75rem 1rem !important;
-}
-
-.squirrel-input-area input {
-    flex: 1 !important;
-    min-width: 0 !important;
-    padding: 0.6rem 0.7rem !important;
-    color: #e2e8f0 !important;
-    background: #080b14 !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-}
-
-.squirrel-input-area button {
-    width: 40px !important;
-    background: #38bdf8 !important;
-    color: #080b14 !important;
-    border: 0 !important;
-    border-radius: 8px !important;
-}
-
-@media (max-width: 600px) {
+/* --- SQUIRREL DESKTOP ALIGNMENT FIX --- */
+@media (min-width: 1200px) {
     .squirrel-assistant {
-        left: auto !important;
-        right: 16px !important;
-        bottom: 16px !important;
+        /* Calculates screen width minus your 1200px page max-width, splits the margin space, and pulls the widget inward */
+        right: calc((100vw - 1200px) / 2 + 24px);
+        transition: right 0.3s ease;
     }
+}
 
-    .squirrel-chat {
-        left: auto !important;
-        right: 0 !important;
-        width: calc(100vw - 32px) !important;
-        max-width: calc(100vw - 32px) !important;
-        bottom: 90px !important;
+/* Ensure the assistant never overlaps text or breaks boundaries on massive screens */
+@media (min-width: 1600px) {
+    .squirrel-assistant {
+        right: calc((100vw - 1200px) / 2 + 48px);
     }
 }
